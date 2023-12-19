@@ -1,0 +1,49 @@
+{
+  "name": "fake-racer",
+  "version": "2.19.0",
+  "description": "<table>\r   <tr>\r     <td width=\"50%\" align=\"center\" vertical-align=\"middle\">\r       <img src=\"https://imgur.com/wfz8Utx.png\" alt=\"initial screen\"/>\r     </td>\r     <td width=\"50%\" align=\"center\" vertical-align=\"middle\">\r       <img src=\"https://imgur.com/3H39Eqg.png\" alt=\"race screen\"/>\r     </td>\r   </tr>\r </table>\r <br>",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install",
+    "release": "standard-version",
+    "release:github": "conventional-github-releaser -p angular -t",
+    "release:githuball": "conventional-github-releaser -p angular -r 0 -t",
+    "release:tags": "git push --follow-tags origin main",
+    "postrelease": "npm run release:tags && npm run release:github",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --open --mode development"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/preset-env": "^7.22.10",
+    "@commitlint/cli": "^14.1.0",
+    "@commitlint/config-conventional": "^14.1.0",
+    "babel-loader": "^9.1.3",
+    "conventional-github-releaser": "^3.1.5",
+    "css-loader": "^6.8.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "husky": "^7.0.4",
+    "standard-version": "^9.3.2",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "@sweetalert2/themes": "^5.0.15",
+    "flask": "^0.2.10",
+    "node": "^20.5.0",
+    "node-sass": "^9.0.0",
+    "nvm": "0.0.4",
+    "openai": "^3.3.0",
+    "socket.io-client": "^4.7.2",
+    "sweetalert2": "^11.7.28",
+    "whisper": "^0.3.3",
+    "yaml": "^2.3.1"
+  }
+}

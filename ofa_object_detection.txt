@@ -1,0 +1,40 @@
+from PIL import Image
+from torchvision import transforms
+from transformers import OFATokenizer, OFAModel
+from transformers.models.ofa.generate import sequence_generator
+import torch
+
+tokenizer = OFATokenizer.from_pretrained("OFA-tiny")
+model = OFAModel.from_pretrained("OFA-tiny", use_cache=False)
+
+
+
+def generate_description(image: Image.Image) -> str:
+    mean, std = [0.5, 0.5, 0.5], [0.5, 0.5, 0.5]
+    resolution = 256
+    patch_resize_transform = transforms.Compose([
+        lambda img: img.convert("RGB"),
+        transforms.Resize((resolution, resolution), interpolation=Image.BICUBIC),
+        transforms.ToTensor(), 
+        transforms.Normalize(mean=mean, std=std)
+    ])
+
+   
+
+    txt = " what can we describe about the image?"
+    inputs = tokenizer([txt], return_tensors="pt").input_ids
+    patch_img = patch_resize_transform(image).unsqueeze(0)
+
+    # Using the generator of huggingface version
+    
+    gen = model.generate(inputs, patch_images=patch_img, num_beams=5, no_repeat_ngram_size=3)
+
+    decoded = tokenizer.batch_decode(gen, skip_special_tokens=True)
+    if len(decoded) > 0:
+        return decoded[0]
+    else:
+        return ""
+
+
+
+print(generate_description(Image.open("test.jpg")))

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="cabin AI" />
+    <meta property="og:title" content="cabin AI Demo" />
+    <meta
+      property="og:url"
+      content="https://johnatas-henrique.github.io/fake-racer/"
+    />
+    <meta property="og:description" content="cabin AI" />
+    <meta property="og:image" content="https://i.imgur.com/XMPnLHm.png" />
+    <meta property="og:type" content="game" />
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='@sweetalert2/themes/bootstrap-4/bootstrap-4.css') }}"
+    />
+    <!-- <script src="{{ url_for('static', filename='js/sweetalert2/dist/sweetalert2.min.js') }}"></script> -->
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <!-- <script src="https://pixijs.download/release/pixi.js"></script> -->
+    <title>cabin AI</title>
+  </head>
+
+  <body translate="no">
+    <div class="container">
+      <ul id="info">
+        <button
+          id="pauseBtn"
+          class="interfaceBtn pause hidden"
+          name="p"
+        ></button>
+        <button id="fullScreenBtn" class="interfaceBtn" name="fullscreenbtn">
+          <img
+            class="img100"
+            src="{{ url_for('static', filename='images/sprites/other/fullscreen.png') }}"
+          />
+        </button>
+        <button id="muteBtn" class="mute hidden" name="m"></button>
+        <!-- <span id="muteBtn" class="mute hidden"></span> -->
+      </ul>
+
+      <video id="spaceview" width="100%" height="100%" class="hidden">
+        <source
+          src="{{ url_for('static', filename='video/space.mp4') }}"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+
+      <video id="streetview" width="100%" height="100%" class="hidden">
+        <source
+          src="{{ url_for('static', filename='video/street.mp4') }}"
+          type="video/mp4"
+        />
+        Your browser does not support the video tag.
+      </video>
+
+      <canvas id="backgroundCanvas" width="3840" height="2160"></canvas>
+      <canvas id="selectionCanvas" width="3840" height="2160"></canvas>
+    </div>
+
+    <script type="module" src="static/js/starfield.js"></script>
+
+    <audio id="menuMusic">
+      <source src="{{ url_for('static', filename='music/menu.wav') }}" />
+    </audio>
+
+    <audio id="streetMusic">
+      <source src="{{ url_for('static', filename='music/street.wav') }}" />
+    </audio>
+
+    <audio id="spaceMusic">
+      <source src="{{ url_for('static', filename='music/space.wav') }}" />
+    </audio>
+
+    <audio id="alarmMusic">
+      <source src="{{ url_for('static', filename='music/alarm.wav') }}" />
+    </audio>
+
+    <audio id="questionMusic">
+      <source src="{{ url_for('static', filename='music/question.wav') }}" />
+    </audio>
+
+    <audio id="countdownMusic">
+      <source src="{{ url_for('static', filename='music/countdown.wav') }}" />
+    </audio>
+
+    <script
+      type="module"
+      src="{{ url_for('static', filename='js/message.js') }}"
+    ></script>
+
+    <script
+      type="module"
+      src="{{ url_for('static', filename='js/main.js') }}"
+    ></script>
+
+    <script>
+      var arrowKeysURL =
+        "{{ url_for('static', filename='images/sprites/other/arrowKeys.png') }}";
+      var enterKeyURL =
+        "{{ url_for('static', filename='images/sprites/other/enterKey.png') }}";
+    </script>
+    <link rel="stylesheet" href="static/css/sweetalert2.min.css" />
+    <script src="static/js/howler.min.js"></script>
+    <script src="static/js/sweetalert2.min.js"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+    <!-- <script src="https://unpkg.com/starback@2.1.1/dist/starback.global.js"></script> -->
+  </body>
+</html>

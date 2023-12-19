@@ -1,0 +1,255 @@
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: MicrosoftYahei;
+  src: url(../other/MicrosoftYahei.ttf);
+}
+@font-face {
+  font-family: MicrosoftYaheiBold;
+  src: url(../other/MicrosoftYaheiBold.ttf);
+}
+
+html, body {
+  background: #111;
+  font-family: Joystix, Verdana, Geneva, sans-serif;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: #111;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  height: 100vh; 
+  overflow: hidden;
+}
+
+#backgroundCanvas {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+  position: absolute;
+}
+
+#selectionCanvas {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  z-index: 2;
+  position: absolute;
+}
+
+
+#space{
+  width: 100%;
+  height: 100vh; 
+  overflow: hidden;
+}
+
+#streetview{
+  width: 100%;
+  height: 100vh; 
+  overflow: hidden;
+}
+
+#info, .hud-container, #touchControls {
+  color: #111;
+  /* text-shadow: 1px 1px 2px black; */
+  position: absolute;
+  width: 100%;
+  list-style-type: none;
+  font-weight: 700;
+  font-size: 2vw;
+  text-align: justify;
+  z-index: 3;
+  user-select: none;
+  overflow: hidden;
+}
+
+#info {
+  align-content: end;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 3vw;
+  padding-right: 0.5vw;
+  top: 0vw;
+  width: 100%;
+}
+
+.fpsCanvas {
+  cursor: pointer;
+  height: 3vw;
+  margin-left: auto;
+  margin-right: 0.2vw;
+  width: 4vw;
+}
+
+.hud-container {
+  background-color: rgba(255, 0, 0, 0.4);
+  border-bottom: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3vw;
+  padding: 5px 0;
+  font-size: 1vw;
+  padding: 0 4%;
+  overflow: hidden;
+}
+
+.hud-container .hud {
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 0.5em;
+  border: 1px solid black;
+  margin: 0 5px;
+  transition-property: background-color;
+  transition-duration: 2s;
+  -webkit-transition-property: background-color;
+  -webkit-transition-duration: 2s;
+  overflow: hidden;
+}
+
+.hud-container .value {
+  color: white;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.hud-container .fastest {
+  background-color: rgba(255, 215, 0, 0.5);
+  overflow: hidden;
+
+}
+
+.mute {
+  background: url(../images/sprites/other/mute.png);
+  background-size: cover;
+  cursor: pointer;
+  display: block;
+  height: 3vw;
+  width: 3vw;
+}
+
+#mute.off {
+  background-position: 3vw 0;
+}
+
+/* #touchControls {
+  bottom: 0em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1em;
+} */
+
+.hidden {
+  display: none;
+}
+
+.filter {
+  filter: brightness(75%);
+}
+
+.interfaceBtn {
+  background: transparent;
+  border: 0;
+  height: 3vw;
+  width: 3vw;
+}
+
+/* .img100 {
+  max-height: 96%;
+  max-width: 96%;
+} */
+
+.pause {
+  background: url(../images/sprites/other/pause-play.png);
+  background-size: 200%;
+  margin-right: 0.2vw;
+}
+
+#pauseBtn.off {
+  background-position: 3vw 0;
+}
+
+
+/* 容器，包含灰色背景圈和文本 */
+#recording-container {
+  display: flex;
+  flex-direction: column; /* 让子元素垂直排列 */
+  align-items: center; /* 使元素居中 */
+}
+
+/* 主錄音按鈕 - 灰色背景圓 */
+#recording-circle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background-color: gray;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* 根据需要调整阴影 */
+}
+
+/* 当录音时的动画效果 */
+#recording-animation {
+  width: 40px;
+  height: 40px;
+  border: 3px solid red;
+  border-radius: 50%;
+  animation: pulse 1s infinite;
+}
+
+/* 脉冲动画的keyframes */
+@keyframes pulse {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.3);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+/* 主录音时显示的红色圆圈 */
+#red-circle {
+  width: 50px;
+  height: 50px;
+  background-color: #DD0923;
+  border-radius: 50%;
+}
+
+/* 针对SweetAlert按钮的客制化样式 */
+.custom-confirm-button {
+  padding: 0 !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.custom-text {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: rgb(64, 63, 63);
+  margin-top: 5px;
+  text-align: center;
+}
+
+.popup-adjust{
+  overflow: hidden;
+}

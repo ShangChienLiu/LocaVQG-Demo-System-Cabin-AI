@@ -1,0 +1,91 @@
+{
+  "_from": "@sweetalert2/themes",
+  "_id": "@sweetalert2/themes@5.0.15",
+  "_inBundle": false,
+  "_integrity": "sha512-uGU7CynpjRc3cllTqZEvXiZTpfQ6MN4faG+Tf0VFW81bLysCQm00iHS3NJLZx5STRfxpM5SzqeVXpAzJyTG/WA==",
+  "_location": "/@sweetalert2/themes",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@sweetalert2/themes",
+    "name": "@sweetalert2/themes",
+    "escapedName": "@sweetalert2%2fthemes",
+    "scope": "@sweetalert2",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@sweetalert2/themes/-/themes-5.0.15.tgz",
+  "_shasum": "e445f0fcf5a04e4183dce3cd5eacf5b1e0b08e1d",
+  "_spec": "@sweetalert2/themes",
+  "_where": "/mnt/c/Users/jason/Desktop/HHTD_Website",
+  "author": {
+    "name": "Limon Monte",
+    "url": "https://limonte.github.io"
+  },
+  "bugs": {
+    "url": "https://github.com/sweetalert2/sweetalert2-themes/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Giuseppe Verni",
+      "url": "https://github.com/gverni"
+    },
+    {
+      "name": "Morgan Touverey-Quilling",
+      "email": "mtouverey@alembic-dev.com",
+      "url": "https://github.com/toverux"
+    },
+    {
+      "name": "Joseph Schultz",
+      "url": "https://github.com/acupajoe"
+    },
+    {
+      "name": "Matthew Francis Brunetti",
+      "email": "zenflow87@gmail.com",
+      "url": "https://github.com/zenflow"
+    }
+  ],
+  "deprecated": false,
+  "description": "Themes for SweetAlert2",
+  "devDependencies": {
+    "@sweetalert2/stylelint-config": "^2.0.12",
+    "replace-in-file": "^6.3.5",
+    "sass": "^1.56.1",
+    "stylelint": "^14.14.0",
+    "sweetalert2": "^11.5.2",
+    "vite": "^3.2.4",
+    "zx": "^7.1.1"
+  },
+  "homepage": "https://sweetalert2.github.io/",
+  "keywords": [
+    "sweetalert2",
+    "theme",
+    "themes",
+    "theming",
+    "sass"
+  ],
+  "license": "MIT",
+  "name": "@sweetalert2/themes",
+  "peerDependencies": {
+    "sweetalert2": "^11.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sweetalert2/sweetalert2-themes.git"
+  },
+  "scripts": {
+    "build": "NODE_NO_WARNINGS=1 zx tools/build.mjs",
+    "create-new-theme": "zx tools/create-new-theme.mjs",
+    "lint": "stylelint **/*.scss",
+    "start": "vite",
+    "watch": "NODE_NO_WARNINGS=1 zx tools/build.mjs --watch"
+  },
+  "version": "5.0.15"
+}

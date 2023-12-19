@@ -1,0 +1,8 @@
+#README
+
+source HHweb/bin/activate
+
+sudo apt update
+sudo apt install ffmpeg
+
+pip3 install pydub openai retry azure-cognitiveservices-speech PyYAML flask flask_cors
